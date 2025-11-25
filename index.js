@@ -1,4 +1,4 @@
-ClickBattle.init("구구"); // 자기 닉네임
+ClickBattle.init("heea"); // 자기 닉네임
 
 
 
