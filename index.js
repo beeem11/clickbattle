@@ -1,4 +1,4 @@
-ClickBattle.init("HEEA"); // 자기 닉네임
+ClickBattle.init("구구"); // 자기 닉네임
 
 
 
@@ -95,7 +95,7 @@ if (initialtime === 0) {
 //시작하기 버튼
 start.addEventListener('click', () => {
     ClickBattle.recordClick();
-    
+
     start.remove();
     intervalId = setInterval(updateTimer, 10);        // 10밀리초 간격으로 updateTimer 함수 실행
 });
