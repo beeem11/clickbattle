@@ -1,0 +1,187 @@
+<html>
+
+
+<style>
+
+html, body {
+    overflow: hidden;
+    margin: 0px;
+    user-select: none;
+    width: 100%;
+    height: 100%;
+   
+    padding: 0;
+
+}
+
+body {
+    position: relative;
+}
+
+#desk {
+    position: absolute;
+    top: 60%;
+    z-index: 10;
+
+    height: 50%;
+}
+
+#nail {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 4%;
+    z-index: 5;
+    transform: translate(-50%, -50%)
+}
+
+#count {
+    color: white;
+    position: absolute;
+    left: 10%;
+    font-size: 70;
+    z-index: 10;
+}
+
+
+#timer {
+    color: white;
+    position: absolute;
+    left: 80%;
+    font-size: 70;
+    z-index: 10;
+}
+#start{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 540%;
+
+    background-color: antiquewhite;
+    padding: 3%;
+    transform: translate(-50%, -50%);
+    z-index: 50;
+}
+
+#result {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 70;
+    color: red;
+    z-index: 10;
+    display: none;
+
+    background-color: rgb(200, 189, 179);
+    padding: 3%;
+
+
+
+
+
+}
+#restart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50;
+    z-index: 10;
+    display: none;
+
+
+    background-color: antiquewhite;
+    padding: 3%;
+
+
+}
+
+#sound {
+    position: absolute;
+    color: red;
+
+
+    font-size: 80px;
+    display: none;
+    z-index: 15;
+
+}
+
+#house {
+    position: absolute;
+    height: 20%;
+
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+#table {
+    position: absolute;
+    height: 20%;
+
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 20;
+}
+#chair {
+    position: absolute;
+    height: 20%;
+
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+#background {
+    max-width: 100%;   
+    max-height: 100%;     
+    height: 100%;
+    width: 100%;
+    position: absolute; 
+    object-fit: cover;
+    z-index: 0;
+}
+
+</style>
+
+
+<body>
+
+<img id="background" src="background.png">
+<img id ="desk" src="desk.png">
+<img id="nail" src="nail.png">
+
+<div id ="count">0</div>
+
+<div id="start">시작하기</div>
+<div id="timer">15:00</div>
+
+
+<p id="result">결과</p>
+<p id="restart">음... 다른 것도 만들어볼까?</p>
+<img id="house" src="house.png">
+<img id="table" src="table.png">
+<img id="chair" src="chair.png">
+
+
+<p id="sound"> 쾅 </p>
+
+
+
+
+
+
+<script src ="index.js"></script>
+
+
+</body>
+
+
+
+</html>
