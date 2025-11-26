@@ -1,4 +1,3 @@
-ClickBattle.init("heea"); // 자기 닉네임
 
 
 
@@ -94,7 +93,7 @@ if (initialtime === 0) {
 
 //시작하기 버튼
 start.addEventListener('click', () => {
-    ClickBattle.recordClick();
+
 
     start.remove();
     intervalId = setInterval(updateTimer, 10);        // 10밀리초 간격으로 updateTimer 함수 실행
@@ -105,7 +104,7 @@ start.addEventListener('click', () => {
 
 // 못박기
 nail.addEventListener('click', () => {
-    ClickBattle.recordClick();
+
 
     sound.style.display='block';
 
@@ -151,7 +150,7 @@ if (tap === 74) {
 
 //다시 시작
 restart.addEventListener('click', () => {
-    ClickBattle.recordClick();
+
     window.location.reload();
 
 }
