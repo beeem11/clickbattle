@@ -85,12 +85,23 @@ function renderCollection() {
     items.forEach(item => {
         const isUnlocked = collected[item.id] === true; 
         const itemDiv = document.createElement('div');
+        
+        // 획득 여부에 따라 'unlocked' 클래스를 추가합니다. (CSS에서 filter: grayscale을 제어함)
         itemDiv.className = `collection-item ${isUnlocked ? 'unlocked' : ''}`;
 
         const itemName = isUnlocked ? item.name : '???'; 
-
+        
+        // 💡 수정: 미획득 시에는 임시 이미지(예: 'question.png' 또는 빈 문자열)를 사용하거나, 
+        // CSS를 활용하여 이미지를 완전히 보이지 않게 처리합니다.
+        // 여기서는 CSS의 필터(grayscale)는 유지하고, 미획득 시 아이템 영역 자체에 배경색을 입혀 이미지가 완전히 숨겨지게 합니다.
+        
+        // 아이템 이미지 경로 (획득 시 실제 이미지, 미획득 시 빈 이미지(또는 투명)를 통해 숨김 처리)
+        const imageHtml = isUnlocked 
+            ? `<img src="${item.src}" alt="${item.name}">`
+            : `<div style="height: 100px; display: flex; align-items: center; justify-content: center; font-size: 50px; color: gray;">?</div>`;
+        
         itemDiv.innerHTML = `
-            <img src="${item.src}" alt="${item.name}">
+            ${imageHtml}
             <p style="font-weight: bold;">${itemName}</p>
             <p style="font-size: 14px; color: ${isUnlocked ? '#4CAF50' : 'gray'};">${isUnlocked ? '획득 완료' : '미획득'}</p>
         `;
