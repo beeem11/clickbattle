@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" cpmtent="width=devic-width, initial-scal==1.0, maximum-scale=1.0 user-scalable=no">
+    <meta name="viewport" content="width=devic-width, initial-scal==1.0, maximum-scale=1.0 user-scalable=no">
     
     <script src="https://clickbattle2025.web.app/click-battle.js"></script>
     <script>ClickBattle.init("heea");</script>
@@ -13,26 +13,23 @@
 
 html, body {
     touch-action: manipulation;
-
     overflow: hidden;
     margin: 0px;
     user-select: none;
     width: 100%;
     height: 100%;
-   
     padding: 0;
-
 }
 
 body {
     position: relative;
+    font-family: 'Arial', sans-serif; /* 폰트 설정 추가 */
 }
 
 #desk {
     position: absolute;
     top: 60%;
     z-index: 10;
-
     height: 50%;
 }
 
@@ -40,38 +37,62 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-
     width: 4%;
     z-index: 5;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
+    cursor: pointer; /* 클릭 가능한 요소임을 명시 */
 }
 
+/* 🔨 점수 (#count) 스타일 업데이트 */
 #count {
-    color: white;
+    color: #4CAF50; /* 산뜻한 녹색 */
     position: absolute;
-    left: 10%;
-    font-size: 70;
+    left: 5%; /* 왼쪽 여백 조정 */
+    top: 5%; /* 상단 여백 조정 */
+    font-size: 80px; /* 더 크게 */
+    font-weight: bold; /* 굵게 */
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); /* 그림자 추가 */
     z-index: 10;
 }
 
-
+/* ⏱️ 타이머 (#timer) 스타일 업데이트 */
 #timer {
-    color: white;
+    color: #FF5722; /* 눈에 띄는 주황색 */
     position: absolute;
-    left: 80%;
-    font-size: 70;
+    right: 5%; /* 오른쪽 여백 조정 */
+    top: 5%; /* 상단 여백 조정 */
+    left: unset; /* 기존 left 속성 제거 */
+    font-size: 80px; /* 더 크게 */
+    font-weight: bold; /* 굵게 */
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); /* 그림자 추가 */
     z-index: 10;
 }
+
+/* ▶️ 시작하기 (#start) 버튼 스타일 업데이트 */
 #start{
     position: absolute;
     left: 50%;
     top: 50%;
     font-size: 540%;
-
-    background-color: antiquewhite;
-    padding: 3%;
+    font-weight: 900;
+    
+    /* 깔끔한 버튼 스타일 */
+    background-color: #4CAF50; /* 녹색 배경 */
+    color: white; /* 흰색 텍스트 */
+    border: none; /* 테두리 제거 */
+    border-radius: 15px; /* 둥근 모서리 */
+    padding: 20px 40px; /* 패딩 조정 */
+    box-shadow: 0 9px #388E3C; /* 입체감 있는 그림자 */
+    cursor: pointer;
+    
     transform: translate(-50%, -50%);
     z-index: 50;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.1s; /* 호버 효과를 위한 transition */
+}
+#start:active {
+    background-color: #388E3C;
+    box-shadow: 0 5px #1B5E20;
+    transform: translate(-50%, -48%) scale(0.98); /* 클릭 시 살짝 내려가고 작아지는 효과 */
 }
 
 #result {
@@ -79,74 +100,67 @@ body {
     top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 70;
-    color: red;
+    font-size: 70px;
+    font-weight: bold;
+    color: #D32F2F; /* 강조되는 빨간색 */
     z-index: 10;
     display: none;
 
-    background-color: rgb(200, 189, 179);
+    background-color: rgba(255, 255, 255, 0.85); /* 반투명 흰색 배경 */
+    border-radius: 10px;
     padding: 3%;
-
-
-
-
-
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+/* 🔁 재시작 (#restart) 버튼 스타일 업데이트 */
 #restart {
     position: absolute;
     top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 40;
+    font-size: 40px;
+    font-weight: 600;
     z-index: 10;
     display: none;
-
-
-    background-color: antiquewhite;
-    padding: 3%;
-
-
+    
+    /* 깔끔한 버튼 스타일 */
+    background-color: #2196F3; /* 파란색 배경 */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 30px;
+    box-shadow: 0 6px #1976D2;
+    cursor: pointer;
+    
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.1s;
 }
+#restart:active {
+    background-color: #1976D2;
+    box-shadow: 0 3px #0D47A1;
+    transform: translate(-50%, -48%) scale(0.98);
+}
+
 
 #sound {
     position: absolute;
     color: red;
-
-
     font-size: 80px;
     display: none;
     z-index: 15;
-
 }
 
-#house {
+/* 결과 이미지 스타일들 */
+#house, #table, #chair, #signs, #ax {
     position: absolute;
     height: 20%;
-
     top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: none;
 }
-#table {
-    position: absolute;
-    height: 20%;
+#table { z-index: 20; }
 
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-    z-index: 20;
-}
-#chair {
-    position: absolute;
-    height: 20%;
-
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-}
 
 #background {
     max-width: 100%;   
@@ -156,6 +170,80 @@ body {
     position: absolute; 
     object-fit: cover;
     z-index: 0;
+}
+
+/* 🖼️ 도감 버튼 스타일 */
+#collection-tab {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    background-color: #00bcd4; /* 청록색 */
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    box-shadow: 0 4px #008ba3;
+    cursor: pointer;
+    z-index: 10;
+    display: none; /* 초기에는 숨김 */
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.1s;
+}
+#collection-tab:active {
+    background-color: #008ba3;
+    box-shadow: 0 2px #005a63;
+    transform: translate(-50%, 2px);
+}
+
+/* 📚 도감 화면 컨테이너 스타일 */
+#collection-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* 어두운 배경 */
+    z-index: 100;
+    display: none;
+    color: white;
+    overflow-y: auto;
+    padding-top: 50px;
+    text-align: center;
+}
+
+/* 도감 내 아이템 스타일 */
+.collection-item {
+    margin: 20px;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 10px;
+    display: inline-block;
+    width: 150px;
+    height: 200px;
+    vertical-align: top;
+}
+
+.collection-item img {
+    max-width: 100%;
+    max-height: 100px;
+    filter: grayscale(100%); /* 기본적으로 흑백 */
+    transition: filter 0.5s;
+}
+
+.collection-item.unlocked img {
+    filter: grayscale(0%); /* 획득 시 컬러 */
+}
+
+/* 도감 닫기 버튼 */
+#close-collection {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
 }
 
 </style>
@@ -172,20 +260,25 @@ body {
 <div id="start">시작하기</div>
 <div id="timer">15:00</div>
 
+<button id="collection-tab">📚 도감</button>
 
 <p id="result">결과</p>
-<p id="restart">음... 다른 것도 만들어볼까?</p>
+<button id="restart">음... 다른 것도 만들어볼까?</button> 
+
 <img id="house" src="house.png">
 <img id="table" src="table.png">
 <img id="chair" src="chair.png">
-
+<img id="signs" src="signs.png">
+<img id="ax" src="ax.png">
 
 <p id="sound"> 쾅 </p>
 
-
-
-
-
+<div id="collection-screen">
+    <div id="close-collection">✖</div>
+    <h2>🔨 내 제작 도감</h2>
+    <div id="collection-list">
+        </div>
+</div>
 
 <script src ="index.js"></script>
 
